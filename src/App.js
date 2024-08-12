@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import FooterMenu from './components/FooterMenu';
+import Hero from './components/Hero';
+import Navbar from './components/Navbar';
+import Cards from './components/Cards';
+import ContactForm from './components/ContactForm';
+import Footer from './components/Footer';
+import { PropertiesProvider } from './components/Context/PropertyContext/PropertyContext';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PropertiesProvider>
+        <Navbar />
+        <Hero />
+        <div className='container mx-auto pt-12'>
+          <Cards />
+        </div>
+        <ContactForm />
+        <Footer />
+        <FooterMenu />
+      </PropertiesProvider>
+
     </div>
   );
 }

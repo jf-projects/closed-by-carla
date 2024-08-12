@@ -1,0 +1,28 @@
+.card{
+    figure{
+
+        img{
+            z-index: 1 !important;
+        }
+    }
+}
+
+.img-hover-container {
+    position: relative;
+    overflow: hidden; // Ensures that the zoom effect is contained
+
+    img {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        &:hover {
+            transform: scale(1.05); // Slightly zooms in the image
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); // Adds a shadow effect
+        }
+    }
+}
+
+.compass{
+    &:hover {
+       color: darkcyan;
+    }
+}
