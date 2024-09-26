@@ -31,14 +31,15 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#property-section">Properties</a></li>
+                        <li><a href="/closed-by-carla/">Home</a></li>
+                        <li><a href="#brokerage-section">Property Inventory</a></li>
+                        <li><a href="#property-section">Rent-to-Own Real Estate</a></li>
                         <li><a href="#contact-section">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
             <div className="navbar-center">
-                <a className="text-xl brand-name" href='/'>Closed by Carla</a>
+                <a className="text-xl brand-name" href='/closed-by-carla/'>Closed by Carla</a>
             </div>
             <div className="navbar-end items-center">
                 <label className="grid cursor-pointer place-items-center">

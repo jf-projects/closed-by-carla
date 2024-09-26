@@ -2,23 +2,23 @@ import { useProperties } from '../Context/PropertyContext/PropertyContext';
 
 
 const Footer = () => {
-    const { properties } = useProperties();
-    const companyDetails = new Map();
+    // const { properties } = useProperties();
+    // const companyDetails = new Map();
 
-    properties.forEach(property => {
-        if (!companyDetails.has(property.company)) {
-            companyDetails.set(property.company, {
-                name: property.name,
-                website: property.website,
-                company: property.company
-            });
-        }
-    });
+    // properties.forEach(property => {
+    //     if (!companyDetails.has(property.company)) {
+    //         companyDetails.set(property.company, {
+    //             name: property.name,
+    //             website: property.website,
+    //             company: property.company
+    //         });
+    //     }
+    // });
 
-    const uniqueCompanies = Array.from(companyDetails.values());
+    // const uniqueCompanies = Array.from(companyDetails.values());
 
     return <footer className="footer bg-base-300 text-base-content p-16">
-        <nav>
+        {/* <nav>
             <h6 className="footer-title">Services</h6>
             <a href='!#' className="link link-hover">Site Viewing</a>
         </nav>
@@ -28,7 +28,7 @@ const Footer = () => {
             {uniqueCompanies.map((property, index) => (
                 <a className="link link-hover" href={property.website} target='_blank' rel="noreferrer" key={index} >{property.company}</a>
             ))}
-        </nav>
+        </nav> */}
         {/* <nav>
             <h6 className="footer-title">Social</h6>
             <div className="grid grid-flow-col gap-4">

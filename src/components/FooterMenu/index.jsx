@@ -12,6 +12,15 @@ const FooterMenu = () => {
                         </svg>
                     </a>
                 </li>
+
+                <li>
+                    <a href='#brokerage-section'>
+                        <svg width={22} height={22} fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
+                            <path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"></path>
+                        </svg>
+                    </a>
+                </li>
                 <li>
                     <a href='#property-section'>
                         <svg width={22} height={22} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

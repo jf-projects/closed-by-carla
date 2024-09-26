@@ -41,27 +41,23 @@ const Cards = () => {
     return (
         <>
             <div className='pt-[5rem] pb-[10rem]' id="property-section">
-                <h1 className="text-center text-5xl text-heading mb-6">Properties</h1>
+                <h1 className="text-center text-5xl text-heading mb-6">Rent-to-Own Real Estate</h1>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {properties.map((property, index) => (
-                        
+                    {properties && properties.map((property, index) => (
+
                         <div
                             key={index}
                             className="card bg-base-100 w-full shadow-xl"
-                            data-aos="fade-up"
-                            data-aos-easing="linear"
-                            data-aos-duration="1500"
-                            data-aos-delay={300 + (index * 200)}
                         >
                             <figure className="img-hover-container">
                                 <img className='h-[14rem] cursor-pointer'
-                                    src={property.pictures[0]}
+                                    src={property.images[0]}
                                     alt={property.name}
                                     onClick={() => handleCarouselClick(property.name)}
                                 />
                             </figure>
-                            <div className="card-body">
+                            <div className="py-5 px-5 space-y-2">
                                 <h2 className="card-title">
                                     {property.name}
                                     <svg className="cursor-pointer compass"
@@ -71,13 +67,25 @@ const Cards = () => {
                                         <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z" />
                                         <path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z" />
                                     </svg>
-                                    {/* <div className="badge badge-secondary">NEW</div> */}
                                 </h2>
                                 <p>{property.location}</p>
-                                <div className="card-actions justify-end">
-                                    {property.add_info.map((info, index) => (
-                                        <div className="badge badge-outline" key={index}>{info}</div>
-                                    ))}
+                                <div className='space-y-2'>
+                                    <div>
+                                        <p className='font-semibold'>Payment Options:</p>
+                                    </div>
+                                    <div className="card-actions justify-start">
+                                        {property.paymentTerms.map((info, index) => (
+                                            <div className="badge badge-success badge-outline" key={index}>{info}</div>
+                                        ))}
+                                    </div>
+                                    <div>
+                                        <p className='font-semibold'>Features:</p>
+                                    </div>
+                                    <div className="card-actions justify-start">
+                                        {property.features.map((info, index) => (
+                                            <div className="badge badge-outline" key={index}>{info}</div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +95,7 @@ const Cards = () => {
                 <dialog id="carousel_modal" className="modal">
                     <div className="modal-box w-full max-w-7xl">
                         <div className="carousel w-full">
-                            {selectedProperty && selectedProperty.pictures.map((picture, index) => (
+                            {selectedProperty && selectedProperty.images.map((picture, index) => (
                                 <div id={`Property${index}`} className="carousel-item relative w-full flex items-center justify-center" key={index}>
                                     <img
                                         src={picture}
