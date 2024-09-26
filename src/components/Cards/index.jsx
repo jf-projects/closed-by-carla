@@ -11,6 +11,7 @@ const Cards = () => {
 
     const { properties } = useProperties();
     const [selectedProperty, setSelectedProperty] = useState(null);
+    if (!properties) return <p>Loading properties...</p>; 
 
     const handleCarouselClick = (prop_name) => {
         const property = properties.find((prop) => prop.name === prop_name);

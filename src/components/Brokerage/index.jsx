@@ -4,7 +4,7 @@ import { useBrokerage } from '../Context/BrokerageContext/BrokerageContext';
 const BrokerageList = () => {
     const { properties } = useBrokerage();
     const [selectedProperty, setSelectedProperty] = useState(null);
-    if (!properties) return <p>Loading properties...</p>; // Handle loading state
+    if (!properties) return <p>Loading properties...</p>; 
 
     const handleCarouselClick = (prop_name) => {
         const property = properties.find((prop) => prop.name === prop_name);

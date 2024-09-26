@@ -19,7 +19,6 @@ function App() {
           <div className='container mx-auto pt-12'>
             <Brokerage />
           </div>
-
           <div className='container mx-auto pt-12'>
             <Cards />
           </div>
@@ -28,7 +27,6 @@ function App() {
           <FooterMenu />
         </PropertiesProvider>
       </BrokerageProvider>
-
     </div >
   );
 }
