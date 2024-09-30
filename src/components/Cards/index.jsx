@@ -5,13 +5,17 @@ import 'aos/dist/aos.css'; // Import AOS styles
 import MapComponent from '../Map';
 import { useProperties } from '../Context/PropertyContext/PropertyContext';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons/faLocationDot';
+// import HtmlToPdf from '../DownloadDetails';
+
 AOS.init();
 
 const Cards = () => {
 
     const { properties } = useProperties();
     const [selectedProperty, setSelectedProperty] = useState(null);
-    if (!properties) return <p>Loading properties...</p>; 
+    if (!properties) return <p>Loading properties...</p>;
 
     const handleCarouselClick = (prop_name) => {
         const property = properties.find((prop) => prop.name === prop_name);
@@ -52,22 +56,25 @@ const Cards = () => {
                             className="card bg-base-100 w-full shadow-xl"
                         >
                             <figure className="img-hover-container">
-                                <img className='h-[14rem] cursor-pointer'
+                                <img
+                                    className="h-[14rem] cursor-pointer"
                                     src={property.images[0]}
                                     alt={property.name}
                                     onClick={() => handleCarouselClick(property.name)}
                                 />
+
+                                {/* <div className="z-10 absolute top-5 left-0 transform -translate-y-1/2 translate-x-4 bg-red-600 text-white text-xs font-semibold px-2 py-1 rounded-r-lg">
+                                    Brand New
+                                </div> */}
                             </figure>
                             <div className="py-5 px-5 space-y-2">
                                 <h2 className="card-title">
                                     {property.name}
-                                    <svg className="cursor-pointer compass"
-                                        width={22} height={22} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                        onClick={() => handleMapClick(property.name)}
-                                    >
-                                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z" />
-                                        <path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z" />
-                                    </svg>
+                                    <FontAwesomeIcon icon={faLocationDot}
+                                        title='See Map'
+                                        className='cursor-pointer text-red-400'
+                                        onClick={() => handleMapClick(property.name)} />
+                                    {/* <HtmlToPdf property={property} /> */}
                                 </h2>
                                 <p>{property.location}</p>
                                 <div className='space-y-2'>

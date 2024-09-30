@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useBrokerage } from '../Context/BrokerageContext/BrokerageContext';
+import HtmlToPdf from '../DownloadDetails';
 
 const BrokerageList = () => {
     const { properties } = useBrokerage();
     const [selectedProperty, setSelectedProperty] = useState(null);
-    if (!properties) return <p>Loading properties...</p>; 
+    if (!properties) return <p>Loading properties...</p>;
 
     const handleCarouselClick = (prop_name) => {
         const property = properties.find((prop) => prop.name === prop_name);
@@ -43,6 +44,7 @@ const BrokerageList = () => {
                         <div className="py-5 px-5 space-y-2">
                             <h2 className="card-title">
                                 {property.name}
+                                <HtmlToPdf property={property} />
                             </h2>
                             <p><span className='font-semibold'>Location: </span> {property.location}</p>
                             <p>
