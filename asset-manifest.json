@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/closed-by-carla/static/css/main.99680011.css",
-    "main.js": "/closed-by-carla/static/js/main.5a223424.js",
+    "main.css": "/closed-by-carla/static/css/main.38a448c0.css",
+    "main.js": "/closed-by-carla/static/js/main.77a0d370.js",
     "static/js/239.be6d211a.chunk.js": "/closed-by-carla/static/js/239.be6d211a.chunk.js",
     "static/js/213.62a84fef.chunk.js": "/closed-by-carla/static/js/213.62a84fef.chunk.js",
     "static/js/732.37a3748b.chunk.js": "/closed-by-carla/static/js/732.37a3748b.chunk.js",
     "static/js/453.6cff80fa.chunk.js": "/closed-by-carla/static/js/453.6cff80fa.chunk.js",
     "index.html": "/closed-by-carla/index.html",
-    "main.99680011.css.map": "/closed-by-carla/static/css/main.99680011.css.map",
-    "main.5a223424.js.map": "/closed-by-carla/static/js/main.5a223424.js.map",
+    "main.38a448c0.css.map": "/closed-by-carla/static/css/main.38a448c0.css.map",
+    "main.77a0d370.js.map": "/closed-by-carla/static/js/main.77a0d370.js.map",
     "239.be6d211a.chunk.js.map": "/closed-by-carla/static/js/239.be6d211a.chunk.js.map",
     "213.62a84fef.chunk.js.map": "/closed-by-carla/static/js/213.62a84fef.chunk.js.map",
     "732.37a3748b.chunk.js.map": "/closed-by-carla/static/js/732.37a3748b.chunk.js.map",
     "453.6cff80fa.chunk.js.map": "/closed-by-carla/static/js/453.6cff80fa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99680011.css",
-    "static/js/main.5a223424.js"
+    "static/css/main.38a448c0.css",
+    "static/js/main.77a0d370.js"
   ]
 }
