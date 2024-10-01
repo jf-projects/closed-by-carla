@@ -1,11 +1,47 @@
 import React, { useState } from 'react';
 import { useBrokerage } from '../Context/BrokerageContext/BrokerageContext';
 import HtmlToPdf from '../DownloadDetails';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import EmailModal from '../EmailInquiry';
 const BrokerageList = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const { properties } = useBrokerage();
     const [selectedProperty, setSelectedProperty] = useState(null);
     if (!properties) return <p>Loading properties...</p>;
+
+
+    const handleOpenModal = (property) => {
+        setIsModalOpen(true); // Show the modal
+        setSelectedProperty(property);
+    };
+    const handleSendEmail = (email, message, name, number) => {
+        const emailData = {
+            email: email,
+            subject: `Inquiry for ${selectedProperty.id} : ${selectedProperty.name}`,
+            message: message,
+            number: number,
+            name: name
+        };
+
+        emailjs
+            .send('service_zibsm3m', 'template_ebugnxe', emailData, 'EIZ5W28_Zxwvclt97')
+            .then(
+                () => {
+                    toast.success('Inquiry successfully sent!');
+                },
+                (e) => {
+                    toast.error('Failed to send the message, please try again!');
+                }
+            ).finally(() => {
+            });
+
+    };
+
 
     const handleCarouselClick = (prop_name) => {
         const property = properties.find((prop) => prop.name === prop_name);
@@ -42,10 +78,25 @@ const BrokerageList = () => {
                         </figure>
 
                         <div className="py-5 px-5 space-y-2">
-                            <h2 className="card-title">
-                                {property.name}
-                                <HtmlToPdf property={property} />
-                            </h2>
+                            <div className="flex justify-between items-center">
+                                <h2 className="card-title">
+                                    {property.name}
+                                </h2>
+
+                                <div className='flex space-x-2'>
+                                    <div className='py-[1px]'>
+                                        <FontAwesomeIcon
+                                            icon={faEnvelope}
+                                            title='Send Inquiry'
+                                            className='cursor-pointer text-gray-400'
+                                            onClick={() => handleOpenModal(property)}
+                                        />
+                                    </div>
+                                    <HtmlToPdf property={property} />
+                                </div>
+                            </div>
+
+
                             <p><span className='font-semibold'>Location: </span> {property.location}</p>
                             <p>
                                 <span className="font-semibold">Price: </span>
@@ -99,6 +150,12 @@ const BrokerageList = () => {
                     <button onClick={closeModal}>Close</button>
                 </form>
             </dialog>
+
+            <EmailModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                onSend={handleSendEmail}
+            />
         </div>
     );
 };

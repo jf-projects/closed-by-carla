@@ -72,7 +72,7 @@ const HtmlToPdf = ({ property }) => {
     };
 
     return (
-        <div>
+        <div className='p-0'>
             <div
                 ref={printRef}
                 className={`px-2 bg-white absolute top-[-9999px] w-[210mm] box-border ${isContentVisible ? '' : 'hidden'}`}

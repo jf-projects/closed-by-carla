@@ -7,15 +7,50 @@ import { useProperties } from '../Context/PropertyContext/PropertyContext';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons/faLocationDot';
+import EmailModal from '../EmailInquiry';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 // import HtmlToPdf from '../DownloadDetails';
 
 AOS.init();
 
 const Cards = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const { properties } = useProperties();
     const [selectedProperty, setSelectedProperty] = useState(null);
     if (!properties) return <p>Loading properties...</p>;
+
+    const handleOpenModal = (property) => {
+        setIsModalOpen(true); // Show the modal
+        setSelectedProperty(property);
+    };
+    const handleSendEmail = (email, message, name, number) => {
+        const emailData = {
+            email: email,
+            subject: `Inquiry for ${selectedProperty.name}`,
+            message: message,
+            number: number,
+            name: name
+        };
+
+        emailjs
+            .send('service_zibsm3m', 'template_ebugnxe', emailData, 'EIZ5W28_Zxwvclt97')
+            .then(
+                () => {
+                    toast.success('Inquiry successfully sent!');
+                },
+                (e) => {
+                    toast.error('Failed to send the message, please try again!');
+                }
+            ).finally(() => {
+            });
+
+    };
 
     const handleCarouselClick = (prop_name) => {
         const property = properties.find((prop) => prop.name === prop_name);
@@ -68,15 +103,29 @@ const Cards = () => {
                                 </div> */}
                             </figure>
                             <div className="py-5 px-5 space-y-2">
-                                <h2 className="card-title">
-                                    {property.name}
-                                    <FontAwesomeIcon icon={faLocationDot}
-                                        title='See Map'
-                                        className='cursor-pointer text-red-400'
-                                        onClick={() => handleMapClick(property.name)} />
-                                    {/* <HtmlToPdf property={property} /> */}
-                                </h2>
+                                <div className="flex justify-between items-center">
+                                    <h2 className="card-title">
+                                        {property.name}
+                                    </h2>
+
+                                    <div className='flex space-x-2'>
+                                        <FontAwesomeIcon
+                                            icon={faLocationDot}
+                                            title='See Map'
+                                            className='cursor-pointer text-red-400'
+                                            onClick={() => handleMapClick(property.name)}
+                                        />
+
+                                        <FontAwesomeIcon
+                                            icon={faEnvelope}
+                                            title='Send Inquiry'
+                                            className='cursor-pointer text-gray-400'
+                                            onClick={() => handleOpenModal(property)}
+                                        />
+                                    </div>
+                                </div>
                                 <p>{property.location}</p>
+
                                 <div className='space-y-2'>
                                     <div>
                                         <p className='font-semibold'>Payment Options:</p>
@@ -137,6 +186,12 @@ const Cards = () => {
                 <div className="divider"></div>
 
             </div>
+
+            <EmailModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                onSend={handleSendEmail}
+            />
         </>
     );
 }

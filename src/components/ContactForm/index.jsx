@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
+import { toast } from 'react-toastify';
 AOS.init();
 
 const ContactForm = () => {
@@ -13,15 +14,16 @@ const ContactForm = () => {
     const sendEmail = (e) => {
         e.preventDefault();
         setIsDisabled(true);
+
         emailjs
             .sendForm('service_zibsm3m', 'template_bsuklb8', refForm.current, 'EIZ5W28_Zxwvclt97')
             .then(
                 () => {
-                    alert('Message successfully sent!')
+                    toast.success('Message successfully sent!')
                     window.location.reload(false)
                 },
                 () => {
-                    alert('Failed to send the message, please try again')
+                    toast.error('Failed to send the message, please try again')
                 }
             ).finally(() => {
                 setIsDisabled(false);

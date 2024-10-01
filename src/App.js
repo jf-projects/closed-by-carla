@@ -8,7 +8,8 @@ import Footer from './components/Footer';
 import { PropertiesProvider } from './components/Context/PropertyContext/PropertyContext';
 import { BrokerageProvider } from './components/Context/BrokerageContext/BrokerageContext';
 import Brokerage from './components/Brokerage';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div>
@@ -25,6 +26,7 @@ function App() {
           <ContactForm />
           <Footer />
           <FooterMenu />
+          <ToastContainer />
         </PropertiesProvider>
       </BrokerageProvider>
     </div >
