@@ -47,6 +47,7 @@ const Navbar = () => {
                         onClick={toggleTheme}
                         type="checkbox"
                         value="synthwave"
+                        name="toggle"
                         className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1" />
                     <svg
                         className="stroke-base-100 fill-base-100 col-start-1 row-start-1"

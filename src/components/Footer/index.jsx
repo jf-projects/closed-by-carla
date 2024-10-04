@@ -1,4 +1,4 @@
-import { useProperties } from '../Context/PropertyContext/PropertyContext';
+// import { useProperties } from '../Context/PropertyContext/PropertyContext';
 
 
 const Footer = () => {

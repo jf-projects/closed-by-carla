@@ -104,7 +104,7 @@ const Cards = () => {
                             </figure>
                             <div className="py-5 px-5 space-y-2">
                                 <div className="flex justify-between items-center">
-                                    <h2 className="card-title">
+                                <h2 className="text-lg font-semibold uppercase">
                                         {property.name}
                                     </h2>
 
@@ -128,17 +128,17 @@ const Cards = () => {
 
                                 <div className='space-y-2'>
                                     <div>
-                                        <p className='font-semibold'>Payment Options:</p>
+                                        <p className='font-semibold text-sm'>Payment Options:</p>
                                     </div>
-                                    <div className="card-actions justify-start">
+                                    <div className="flex flex-wrap gap-1 text-sm">
                                         {property.paymentTerms.map((info, index) => (
                                             <div className="badge badge-success badge-outline" key={index}>{info}</div>
                                         ))}
                                     </div>
                                     <div>
-                                        <p className='font-semibold'>Features:</p>
+                                        <p className='font-semibold text-sm'>Features:</p>
                                     </div>
-                                    <div className="card-actions justify-start">
+                                    <div className="flex flex-wrap gap-1 text-sm">
                                         {property.features.map((info, index) => (
                                             <div className="badge badge-outline" key={index}>{info}</div>
                                         ))}

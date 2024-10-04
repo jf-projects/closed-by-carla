@@ -58,8 +58,7 @@ const BrokerageList = () => {
     };
 
     return (
-
-        <div className='pt-[5rem] pb-[10rem]' id="brokerage-section">
+        <div className='pt-[5rem] pb-[10rem] px-2' id="brokerage-section">
             <h1 className="text-center text-5xl text-heading mb-6">Property Inventory</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 
@@ -77,9 +76,9 @@ const BrokerageList = () => {
                             />
                         </figure>
 
-                        <div className="py-5 px-5 space-y-2">
+                        <div className="py-3 px-3 space-y-1">
                             <div className="flex justify-between items-center">
-                                <h2 className="card-title">
+                                <h2 className="text-lg font-semibold uppercase">
                                     {property.name}
                                 </h2>
 
@@ -96,10 +95,9 @@ const BrokerageList = () => {
                                 </div>
                             </div>
 
-
-                            <p><span className='font-semibold'>Location: </span> {property.location}</p>
+                            <p><span className='font-semibold text-sm'>Location: </span> {property.location}</p>
                             <p>
-                                <span className="font-semibold">Price: </span>
+                                <span className="font-semibold text-sm">Price: </span>
                                 {new Intl.NumberFormat('en-PH', {
                                     style: 'currency',
                                     currency: 'PHP',
@@ -107,17 +105,17 @@ const BrokerageList = () => {
                             </p>
                             <div className='space-y-2'>
                                 <div>
-                                    <p className='font-semibold'>Payment Options:</p>
+                                    <p className='font-semibold text-sm'>Payment Options:</p>
                                 </div>
-                                <div className="card-actions justify-start">
+                                <div className="flex flex-wrap gap-1 text-sm">
                                     {property.paymentTerms.map((info, index) => (
                                         <div className="badge badge-success badge-outline" key={index}>{info}</div>
                                     ))}
                                 </div>
                                 <div>
-                                    <p className='font-semibold'>Features:</p>
+                                    <p className='font-semibold text-sm'>Features:</p>
                                 </div>
-                                <div className="card-actions justify-start">
+                                <div className="flex flex-wrap gap-1 text-sm">
                                     {property.features.map((info, index) => (
                                         <div className="badge badge-outline" key={index}>{info}</div>
                                     ))}
